@@ -1,8 +1,9 @@
 package mapstruct
 
 import (
-	"kit/test"
 	"testing"
+
+	"github.com/relax-space/go-kitt/testt"
 )
 
 func Test_Decode(t *testing.T) {
@@ -17,8 +18,8 @@ func Test_Decode(t *testing.T) {
 		"price": 14,
 	}
 
-	test.Ok(t, Decode(appleMap, &apple))
+	testt.Ok(t, Decode(appleMap, &apple))
 
-	test.Equals(t, "red", apple.Color)
+	testt.Equals(t, "red", apple.Color)
 
 }
