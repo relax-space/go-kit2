@@ -11,3 +11,8 @@ func Test_UuId(t *testing.T) {
 	fmt.Println(uuIdInt)
 	fmt.Println(uuId)
 }
+
+func Test_NewUuId(t *testing.T) {
+	uuId := NewUuid("20")
+	fmt.Println(uuId)
+}
