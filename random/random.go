@@ -3,9 +3,10 @@ package random
 import (
 	"bytes"
 	"encoding/binary"
-	"go-kit/base"
 	"strconv"
 	"time"
+
+	"github.com/relax-space/go-kit/base"
 
 	uuid "github.com/satori/go.uuid"
 )
