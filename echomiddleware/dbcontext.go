@@ -46,17 +46,3 @@ func ContextDB(db *xorm.Engine) echo.MiddlewareFunc {
 		}
 	}
 }
-
-func DB(ctx context.Context) *xorm.Session {
-	v := ctx.Value(ContextDBName)
-	if v == nil {
-		panic("DB is not exist")
-	}
-	if db, ok := v.(*xorm.Session); ok {
-		return db
-	}
-	if db, ok := v.(*xorm.Engine); ok {
-		return db.NewSession()
-	}
-	panic("DB is not exist")
-}
