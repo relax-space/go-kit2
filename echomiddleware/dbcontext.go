@@ -27,8 +27,10 @@ func ContextDB(db *xorm.Engine) echo.MiddlewareFunc {
 					log.Println(err)
 				}
 				if err := next(c); err != nil {
-					session.Rollback()
-					return err
+					if err.Error() != "http: request method or response status code does not allow body" { //http.StatusNoContent
+						session.Rollback()
+						return err
+					}
 				}
 				if c.Response().Status >= 500 {
 					session.Rollback()
