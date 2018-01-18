@@ -12,7 +12,7 @@ import (
 )
 
 func UuIdInt64() (uuId uint64) {
-	u1 := uuid.NewV4()
+	u1, _ := uuid.NewV4()
 	buf := bytes.NewBuffer(u1.Bytes())
 	binary.Read(buf, binary.BigEndian, &uuId)
 	return
